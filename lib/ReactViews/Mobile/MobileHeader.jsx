@@ -204,6 +204,7 @@ const MobileHeader = observer(
                   `}
                 >
                   <button
+                    id="btnAddData"
                     type="button"
                     className={Styles.btnAdd}
                     onClick={this.onMobileDataCatalogClicked}

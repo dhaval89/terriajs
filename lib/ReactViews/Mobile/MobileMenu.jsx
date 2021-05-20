@@ -76,6 +76,7 @@ const MobileMenu = observer(
     },
 
     render() {
+      const shareEnabled = props.terria.configParameters.shareEnabled;
       const { t } = this.props;
       const hasStories =
         this.props.terria.configParameters.storyEnabled &&
@@ -106,12 +107,14 @@ const MobileMenu = observer(
                 viewState={this.props.viewState}
               />
             </div>
-            <div onClick={this.hideMenu}>
-              <SharePanel
-                terria={this.props.terria}
-                viewState={this.props.viewState}
-              />
-            </div>
+            <If condition={shareEnabled}>
+              <div onClick={this.hideMenu}>
+                <SharePanel
+                  terria={this.props.terria}
+                  viewState={this.props.viewState}
+                />
+              </div>
+            </If>
             <For each="menuItem" of={this.props.menuItems}>
               <div
                 onClick={this.hideMenu}

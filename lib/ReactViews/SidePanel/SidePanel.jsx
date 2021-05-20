@@ -176,6 +176,7 @@ const SidePanel = observer(
             <Spacing bottom={2} />
             <Box justifySpaceBetween>
               <SidePanelButton
+                id="btnAddData"
                 ref={this.props.refForExploreMapData}
                 onClick={e => this.onAddDataClicked(e)}
                 title={addData}
