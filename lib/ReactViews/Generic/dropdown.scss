@@ -23,6 +23,7 @@
   &.is-open {
     transform: scaleY(1);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 

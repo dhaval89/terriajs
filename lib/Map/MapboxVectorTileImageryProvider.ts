@@ -115,7 +115,7 @@ export default class MapboxVectorTileImageryProvider
       Rectangle.northeast(this._rectangle),
       this._minimumLevel
     );
-    const tileCount =
+    /*const tileCount =
       (Math.abs(neTile.x - swTile.x) + 1) * (Math.abs(neTile.y - swTile.y) + 1);
     if (tileCount > 4) {
       throw new DeveloperError(
@@ -123,7 +123,7 @@ export default class MapboxVectorTileImageryProvider
           tileCount: tileCount
         })
       );
-    }
+    }*/
 
     this._errorEvent = new CesiumEvent();
 

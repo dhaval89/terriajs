@@ -126,5 +126,103 @@ export function defaultBaseMaps(terria: Terria): any[] {
     image: "images/basemaps/dark-matter.png"
   });
 
+  baseMaps.push({
+    item: {
+      id: "basemap-here-terrain",
+      name: "Here Terrain",
+      type: "open-street-map",
+      url: "https://aerial.maps.api.here.com/maptile/2.1/maptile/newest/terrain.day/{z}/{x}/{y}/256/png8?app_id=iXpRWOfbCuAG3RwT3ItP&app_code=ZLUrS2G28mo2mE-BCIFZmw",
+      attribution: "HERE Maps",
+      subdomains: ["1"],
+      opacity: 1.0
+    },
+    image: "images/basemaps/HERE-TerrainDay.png"
+  });
+
+  baseMaps.push({
+    item: {
+      id: "basemap-here-satellite",
+      name: "HERE Satellite",
+      type: "open-street-map",
+      url: "https://aerial.maps.api.here.com/maptile/2.1/maptile/newest/terrain.day/{z}/{x}/{y}/256/png8?app_id=iXpRWOfbCuAG3RwT3ItP&app_code=ZLUrS2G28mo2mE-BCIFZmw",
+      attribution: "HERE Maps",
+      subdomains: ["2"],
+      opacity: 1.0
+    },
+    image: "images/basemaps/HERE_SatelliteDay.png"
+  });
+
+  baseMaps.push({
+    item: {
+      id: "basemap-thunderforest-outdoors",
+      name: "Thunderforest Outdoors",
+      type: "open-street-map",
+      url: "https://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=7644dc7df2924741a4f39bb88ee89576",
+      attribution: "Thunderforest and OSM",
+      opacity: 1.0
+    },
+    image: "images/basemaps/thunderforest_outdoors.png"
+  });
+
+  baseMaps.push({
+    item: {
+      id: "basemap-thunderforest-transport-dark",
+      name: "Thunderforest Transport Dark",
+      type: "open-street-map",
+      url: "https://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=7644dc7df2924741a4f39bb88ee89576",
+      attribution: "Thunderforest and OSM",
+      opacity: 1.0
+    },
+    image: "images/basemaps/thunderforest_transport_dark.png"
+  });
+
+  baseMaps.push({
+    item: {
+      id: "basemap-esri-world-imagery-basemap",
+      name: "ESRI World Imagery Basemap",
+      type: "esri-mapServer",
+      url: "http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/",
+      attribution: "ESRI World Imagery Basemap",
+      opacity: 1.0
+    },
+    image: "images/basemaps/esri_worldimagery_basemap.png"
+  });
+
+  baseMaps.push({
+    item: {
+      id: "basemap-esri-shaded-relief",
+      name: "ESRI Shaded Relief Basemap",
+      type: "esri-mapServer",
+      url: "http://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/",
+      attribution: "ESRI Shaded Relief Basemap",
+      opacity: 1.0
+    },
+    image: "images/basemaps/esri_worldshadedrelief_basemap.png"
+  });
+
+  baseMaps.push({
+    item: {
+      id: "basemap-esri-world-street-map",
+      name: "ESRI World Street Map Basemap",
+      type: "esri-mapServer",
+      url: "http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/",
+      attribution: "ESRI World Street Map Basemap",
+      opacity: 1.0
+    },
+    image: "images/basemaps/esri_World_Street_Map_basemap.png"
+  });
+
+  baseMaps.push({
+    item: {
+      id: "basemap-esri-natGeo-world-map",
+      name: "ESRI NatGeo World Map Basemap",
+      type: "esri-mapServer",
+      url: "http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/",
+      attribution: "ESRI NatGeo World Map Basemap",
+      opacity: 1.0
+    },
+    image: "images/basemaps/esri_NationalGeographic_basemap.png"
+  });
+
   return baseMaps;
 }

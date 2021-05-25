@@ -671,7 +671,7 @@
       "esri-mapServer": "Esri ArcGIS MapServer (single layer)",
       "esri-featureServer": "Esri ArcGIS FeatureServer (single layer)",
       "3d-tiles": "3D Tiles",
-      "open-street-map": "Open Street Map Server",
+      "open-street-map": "Raster XYZ Tile server",
       "geojson": "GeoJSON",
       "geoRss": "GeoRSS",
       "kml": "KML or KMZ",
