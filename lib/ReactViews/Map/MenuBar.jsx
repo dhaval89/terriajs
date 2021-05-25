@@ -54,7 +54,7 @@ const MenuBar = observer(props => {
 
   const storyEnabled = props.terria.configParameters.storyEnabled;
   const enableTools = props.terria.getUserProperty("tools") === "1";
-  const shareEnabled = this.props.terria.configParameters.shareEnabled;
+  const shareEnabled = props.terria.configParameters.shareEnabled;
 
   const promptHtml = (
     <Text textLight textAlignCenter>
