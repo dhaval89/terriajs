@@ -63,7 +63,7 @@ class TooltipWrapperRaw extends React.Component<Props, State> {
   }
 
   componentDidUpdate() {
-    this.adjustOffset();
+    //this.adjustOffset();
   }
 
   componentWillUnmount() {

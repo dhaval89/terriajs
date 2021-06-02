@@ -76,7 +76,7 @@ const MobileMenu = observer(
     },
 
     render() {
-      const shareEnabled = props.terria.configParameters.shareEnabled;
+      const shareEnabled = this.props.terria.configParameters.shareEnabled;
       const { t } = this.props;
       const hasStories =
         this.props.terria.configParameters.storyEnabled &&
