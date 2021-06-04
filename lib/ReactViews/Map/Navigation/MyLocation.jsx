@@ -44,7 +44,7 @@ const MyLocation = createReactClass({
 
     const useJSNavigator = this.props.terria.configParameters.useJSNavigator;
 
-    if (useJSNavigator){
+    if (useJSNavigator) {
       if (navigator.geolocation) {
         const options = {
           enableHighAccuracy: true,
@@ -77,12 +77,10 @@ const MyLocation = createReactClass({
           })
         );
       }
-    }
-    else if (this.props.terria.locationService != undefined) {
+    } else if (this.props.terria.locationService != undefined) {
       this.props.terria.locationService(this.zoomToMyLocation);
     }
   },
-
   zoomToMyLocation(position) {
     const { t } = this.props;
     const longitude = position.coords.longitude;
@@ -159,7 +157,33 @@ const MyLocation = createReactClass({
       })
     );
   },
+  gotoCoordinate(latitude, longitude) {
+    const augmentedVirtualityEnabled =
+      defined(this.props.terria.augmentedVirtuality) &&
+      this.props.terria.augmentedVirtuality.enabled;
 
+    if (augmentedVirtualityEnabled) {
+      this.props.terria.augmentedVirtuality.moveTo(
+        CesiumCartographic.fromDegrees(longitude, latitude),
+        27500
+      );
+    } else {
+      // west, south, east, north, result
+      const rectangle = Rectangle.fromDegrees(
+        longitude - 0.1,
+        latitude - 0.1,
+        longitude + 0.1,
+        latitude + 0.1
+      );
+      this.props.terria.currentViewer.zoomTo(rectangle);
+    }
+  },
+  getCenterLatLong() {
+    const con = CesiumCartographic.fromCartesian(
+      this.props.terria.currentViewer.getCurrentCameraView().position
+    );
+    return [con.latitude * (180 / Math.PI), con.longitude * (180 / Math.PI)];
+  },
   augmentedVirtualityEnabled() {
     return (
       defined(this.props.terria.augmentedVirtuality) &&
@@ -192,6 +216,13 @@ const MyLocation = createReactClass({
   },
 
   render() {
+    if (this.props.terria.gotoCoordinate !== undefined) {
+      this.props.terria.gotoCoordinate(this.gotoCoordinate);
+    }
+    if (this.props.terria.getCenterLatLong !== undefined) {
+      this.props.terria.getCenterLatLong(this.getCenterLatLong);
+    }
+
     const { t } = this.props;
     return (
       <MapIconButton
