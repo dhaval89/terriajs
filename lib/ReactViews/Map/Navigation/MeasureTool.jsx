@@ -43,7 +43,7 @@ class MeasureTool extends React.Component {
     this.userDrawing = new UserDrawing({
       terria: props.terria,
       messageHeader: props.t("measure.measureTool"),
-      allowPolygon: false,
+      allowPolygon: true,
       onPointClicked: this.onPointClicked,
       onPointMoved: this.onPointMoved,
       onCleanUp: this.onCleanUp,
