@@ -77,9 +77,17 @@ class MeasureTool extends React.Component {
     }
     return numberStr;
   }
-
+  sendEventToDevice(event) {
+    var ifrm = document.createElement("IFRAME");
+    ifrm.setAttribute("src", "js-frame:" + event);
+    document.documentElement.appendChild(ifrm);
+    ifrm.parentNode.removeChild(ifrm);
+    ifrm = null;
+  }
   @action
   updateDistance(pointEntities) {
+    console.log("Distance");
+    this.sendEventToDevice("Distance");
     this.totalDistanceMetres = 0;
     if (pointEntities.entities.values.length < 1) {
       return;
@@ -211,12 +219,15 @@ class MeasureTool extends React.Component {
 
   @action.bound
   onPointClicked(pointEntities) {
+    this.sendEventToDevice("Point Clicked");
+    console.log("Point Clicked");
     this.updateDistance(pointEntities);
     this.updateArea(pointEntities);
   }
 
   @action.bound
   onPointMoved(pointEntities) {
+    console.log("Point Moved");
     // This is no different to clicking a point.
     this.onPointClicked(pointEntities);
   }

@@ -227,6 +227,8 @@ export default class Leaflet extends GlobeOrMap {
       // Update mouse coords on mouse move
       this.map.on("mousemove", (e: L.LeafletEvent) => {
         const mouseEvent = <L.LeafletMouseEvent>e;
+        console.log("MouseMove Event");
+        this.sendEventToDevice("MouseMove Event");
         this.mouseCoords.updateCoordinatesFromLeaflet(
           this.terria,
           mouseEvent.originalEvent
@@ -291,13 +293,20 @@ export default class Leaflet extends GlobeOrMap {
       }.bind(this)
     );
   }
-
+  sendEventToDevice(event: any) {
+    let ifrm: any = document.createElement("IFRAME");
+    ifrm.setAttribute("src", "js-frame:" + event);
+    document.documentElement.appendChild(ifrm);
+    ifrm.parentNode.removeChild(ifrm);
+    ifrm = null;
+  }
   /**
    * Pick feature from mouse click event.
    */
   private pickLocation(e: L.LeafletEvent) {
     const mouseEvent = <L.LeafletMouseEvent>e;
-
+    this.sendEventToDevice("pick Location");
+    console.log("Pick Location");
     // Handle click events that cross the anti-meridian
     if (mouseEvent.latlng.lng > 180 || mouseEvent.latlng.lng < -180) {
       mouseEvent.latlng = mouseEvent.latlng.wrap();
